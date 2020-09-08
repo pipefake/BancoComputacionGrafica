@@ -6,6 +6,8 @@
 package modelo;
 
 import core.Base;
+import dato.Usuario;
+import java.util.Timer;
 
 /**
  *
@@ -13,24 +15,55 @@ import core.Base;
  */
 public class Cajero extends Base {
 
+    private double tiempo;
+
+    /**
+     * Get the value of tiempo
+     *
+     * @return the value of tiempo
+     */
+    public double getTiempo() {
+        return tiempo;
+    }
+
+    /**
+     * Set the value of tiempo
+     *
+     * @param tiempo new value of tiempo
+     */
+    public void setTiempo(double tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    
+
+    
+
     @Override
     public Base copy() {
         return new Cajero();
     }
     
-    public boolean estado ()
-    {
+    public boolean estado (double tiempo)
+    {       
           boolean estado = true;
-         String A = ",";
          
-         if (A == "Libre")
-         {
-               estado = true;
-         }
-         else if (A != "Libre")
-         {
-             estado = false;
-         }
+         Timer A = Timer.class.cast(tiempo*1000);
+         Timer timeraux = new Timer ();
+         
+         
+         do{
+         estado = false;
+         }while(timeraux != A);
+         
+//         if (timeraux == A)
+//         {
+//               estado = true;
+//         }
+//         else if (timeraux != A)
+//         {
+//             estado = false;
+//         }
         return estado;    
     }
     
@@ -59,14 +92,24 @@ public class Cajero extends Base {
        
         return tiempo;
     }
-    public static void AcumularUsuarios(String[] args) {
-		int contador = 0;
-		int acumulador = 0;
-		while (contador < 1000) {
-			contador = contador + 1;
-			acumulador = acumulador + 
-		}
-		JOptionPane.showMessageDialog(null, "Usuarios atendidos: " + acumulador);
-	}
+//    public static void AcumularUsuarios() {
+//		int contador = 0;
+//		int acumulador = 0;
+//		while (contador < 1000) {
+//			contador = contador + 1;
+//			acumulador = acumulador + 
+//		}
+//		JOptionPane.showMessageDialog(null, "Usuarios atendidos: " + acumulador);
+//	}
+
+    public Cajero() {
+    }
+
+    public Cajero(double tiempo, int Edad, Usuario Usuario) {
+        this.tiempo = tiempo;
+        this.Edad = Edad;
+        this.Usuario = Usuario;
+    }
+    
 }
 
