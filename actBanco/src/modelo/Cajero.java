@@ -59,5 +59,14 @@ public class Cajero extends Base {
        
         return tiempo;
     }
+    public static void AcumularUsuarios(String[] args) {
+		int contador = 0;
+		int acumulador = 0;
+		while (contador < 1000) {
+			contador = contador + 1;
+			acumulador = acumulador + 
+		}
+		JOptionPane.showMessageDialog(null, "Usuarios atendidos: " + acumulador);
+	}
 }
 
