@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlinterfaces.FXMLDocumentController">
+    <children>
+        <Button fx:id="btnAgregar" layoutX="89.0" layoutY="243.0" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="171.0" text="Agregar" />
+        <Label fx:id="labeltitulo" layoutX="229.0" layoutY="33.0" minHeight="16" minWidth="69" text="Insertar Puntos">
+         <font>
+            <Font size="27.0" />
+         </font></Label>
+      <Label fx:id="labelCX" layoutX="57.0" layoutY="117.0" minHeight="16" minWidth="69" text="Ingresar Coordenada x">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelCY" layoutX="57.0" layoutY="174.0" minHeight="16" minWidth="69" text="Ingresar Coordenada y">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtcoordenadax" layoutX="271.0" layoutY="111.0" prefHeight="39.0" prefWidth="76.0" />
+      <TextField fx:id="txtcoordenaday" layoutX="271.0" layoutY="168.0" prefHeight="39.0" prefWidth="76.0" />
+      <Button fx:id="btnInicio" layoutX="89.0" layoutY="286.0" onAction="#firstButtonAction" prefHeight="27.0" prefWidth="171.0" text="Agregar al inicio" />
+      <Button fx:id="btnFinal" layoutX="89.0" layoutY="328.0" onAction="#lastButtonAction" prefHeight="27.0" prefWidth="171.0" text="Agregar al final" />
+      <TextArea fx:id="txtMostrar" layoutX="370.0" layoutY="106.0" prefHeight="115.0" prefWidth="221.0" />
+      <Button fx:id="btnMostrar" layoutX="386.0" layoutY="243.0" onAction="#showButtonAction" prefHeight="27.0" prefWidth="171.0" text="Mostrar" />
+      <Button fx:id="btnOrden" layoutX="386.0" layoutY="286.0" onAction="#orderButtonAction" prefHeight="27.0" prefWidth="171.0" text="Mostrar en orden" />
+      <Button fx:id="btnInvertida" layoutX="386.0" layoutY="328.0" onAction="#inverseButtonAction" prefHeight="27.0" prefWidth="171.0" text="Mostrar Invertido" />
+      <Button fx:id="btnSalir" layoutX="240.0" layoutY="382.0" onAction="#salirButtonAction" prefHeight="27.0" prefWidth="171.0" text="Salir" />
+    </children>
+</AnchorPane>
