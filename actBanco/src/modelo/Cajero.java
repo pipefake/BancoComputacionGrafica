@@ -45,16 +45,19 @@ public class Cajero extends Base {
         promedio = tiempo*100/total;
         return promedio;
     }
-    public double apromedioTiempo()
+    public double TiempoRestante()
+    {
+        
+        double restante=0;
+      
+        return restante;
+    }
+    
+    public double TiempoCajero()
     {
         double tiempo = 0;
-        double promedio=0.0;
-        double total=0;
-        
-         tiempo = 0+Math.random()*1;
-        
-        promedio = tiempo*100/total;
-        return promedio;
+       
+        return tiempo;
     }
 }
 
