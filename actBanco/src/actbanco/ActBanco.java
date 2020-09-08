@@ -5,7 +5,7 @@
  */
 package actbanco;
 
-import dato.Usuario;
+//import dato.Usuario;
 import java.lang.reflect.Array;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,14 +54,14 @@ public class ActBanco extends Application {
 
 //       
     }
-    Cajero[] cajeros = new Cajero[4];
-//       cajeros[0] = new Cajero();
-//       cajeros[1] = new Cajero();
-//       cajeros[2] = new Cajero();
-//       cajeros[3] = new Cajero();
-//       cajeros[4] = new Cajero();
-        Cajero aux = new Cajero();
-        Usuario ver = new Usuario();
+//    Cajero[] cajeros = new Cajero[4];
+////       cajeros[0] = new Cajero();
+////       cajeros[1] = new Cajero();
+////       cajeros[2] = new Cajero();
+////       cajeros[3] = new Cajero();
+////       cajeros[4] = new Cajero();
+//        Cajero aux = new Cajero();
+//        Usuario ver = new Usuario();
 
 //////////        boolean prueba = aux.estado(ver.tiempoAleatoria());
 //////////
