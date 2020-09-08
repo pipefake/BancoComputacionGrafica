@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import modelo.Cajero;
+
 
 /**
  *
@@ -52,7 +52,9 @@ public class ActBanco extends Application {
     public static void main(String[] args) {
         launch(args);
 
-//       Cajero[] cajeros = new Cajero[4];
+//       
+    }
+    Cajero[] cajeros = new Cajero[4];
 //       cajeros[0] = new Cajero();
 //       cajeros[1] = new Cajero();
 //       cajeros[2] = new Cajero();
@@ -87,5 +89,4 @@ public class ActBanco extends Application {
 //    cajeros[3] = "CajeroD";
 //    cajeros[4] = "CajeroE";
 //    }
-    }
 }
