@@ -83,7 +83,8 @@ public class Cajero {
 
     public boolean estado(int tiempoestado) {
 
-        boolean Aux = true;
+        boolean Aux;
+            Aux = true;
         
         do {
             Aux = false;
