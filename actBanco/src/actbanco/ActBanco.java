@@ -7,6 +7,7 @@ package actbanco;
 
 //import dato.Usuario;
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Application;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import principal.Cajero;
 
 
 /**
@@ -26,24 +28,32 @@ public class ActBanco extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        
+        int tiempodemivariable = 30;
+        
+        Cajero cajero1 = new Cajero(tiempodemivariable);
+        
+        
 
+        
+        
+        
+        
+
+        Timer timer = new Timer();
+
+        TimerTask agregarauto = new TimerTask() {
+            int tiempoestado = 0;
             @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+            public void run() {
+
+                System.out.println("YA?");
+                ++tiempoestado;
+                System.out.println(cajero1.estado(tiempoestado));
+//                System.out.println(cajero1.estado());
             }
-        });
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        };
+        timer.schedule(agregarauto, 1000, 1000);
     }
 
     /**
@@ -54,39 +64,5 @@ public class ActBanco extends Application {
 
 //       
     }
-//    Cajero[] cajeros = new Cajero[4];
-////       cajeros[0] = new Cajero();
-////       cajeros[1] = new Cajero();
-////       cajeros[2] = new Cajero();
-////       cajeros[3] = new Cajero();
-////       cajeros[4] = new Cajero();
-//        Cajero aux = new Cajero();
-//        Usuario ver = new Usuario();
-
-//////////        boolean prueba = aux.estado(ver.tiempoAleatoria());
-//////////
-//////////        System.out.println(", lo logré!");
-//////////
-//////////        boolean ABC = aux.estado(3);
-//////////        System.out.println(ABC);
-//////////
-//////////        Timer timer = new Timer();
-//////////
-//////////        TimerTask pruebadeimprimir = new TimerTask() {
-//////////            @Override
-//////////            public void run() {
-//////////
-//////////                System.out.println(ABC);
-//////////            }
-//////////        };
-//////////        timer.schedule(pruebadeimprimir, 4000, 5000);
-
-//    String cajeros[] = new String[4];
 //    
-//    cajeros[0] = "CajeroA";
-//    cajeros[1] = "CajeroB";
-//    cajeros[2] = "CajeroC";
-//    cajeros[3] = "CajeroD";
-//    cajeros[4] = "CajeroE";
-//    }
 }
