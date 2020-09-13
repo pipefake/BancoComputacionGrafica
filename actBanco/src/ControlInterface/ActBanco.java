@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package actbanco;
+package ControlInterface;
 
 //import dato.Usuario;
 import java.lang.reflect.Array;
@@ -17,7 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import principal.Cajero;
+import modelo.Cajero;
 
 
 /**
