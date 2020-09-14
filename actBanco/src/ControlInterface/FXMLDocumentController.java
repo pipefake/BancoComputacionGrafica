@@ -5,9 +5,11 @@
  */
 package ControlInterface;
 
+import core.Base;
 import modelo.FactoryCliente;
-import modelo.Cliente;
+
 import core.Cola;
+import dato.Usuario;
 import java.awt.BorderLayout;
 import java.net.URL;
 import java.time.Clock;
@@ -16,6 +18,7 @@ import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -60,19 +63,24 @@ public class FXMLDocumentController implements Initializable {
     private int SumaCaja5;
     private int SumaCaja6;
 
-    private TimeLine x;
+    private Timeline x;
+    
+    Cola<Usuario> cola;
+    LinkedList<Object> cajeros;
 
     public void initialize(URL url, ResourceBundle rb) {
         cola = new Cola<>();
-        LinkedList<Object> cajeros = new LinkedList<>();
+        cajeros = new LinkedList<>();
 
         for (int i = 0; i < 5; i++) {
             cajeros.add(new Caja());
         }
+        
+//        este for lo podemos cambiar por add cada uno
 
         System.out.println(cajeros.toString());
 
-        x = new TimeLine(new KeyFrame(Duration.millis(1000), (ActionEvent event) -> {
+        x = new Timeline(new KeyFrame(Duration.millis(1000), (ActionEvent event) -> {
             TodoEnFuncion();
         }));
         x.setCycleCount(Animation.INDEFINITE);
@@ -111,15 +119,15 @@ public class FXMLDocumentController implements Initializable {
         webEngineCajeros.loadContent(htmlCajeros);
     }
 
-    private String escribirReporte() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private String escribirReporte() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     private void crearClientes() {
         int numeroClientes = (int) (Math.random() * 2);
         System.out.print("Se crearon " + numeroClientes + "clientes");
         for (int i = 0; i < numeroClientes; i++) {
-            Cliente u = FactoryCliente.create();
+            Usuario u = FactoryCliente.create();
             cola.encolar(u);
         }
 
@@ -127,17 +135,16 @@ public class FXMLDocumentController implements Initializable {
 
     private void revisarCajerosLibres() {
         System.out.println("Atender cliente");
-        for (Iterator<Caja> itCaja = cajeros.iterator();
-                itCaja.hasNext();) {
+        for (Iterator<Caja> itCaja = cajeros.iterator(); itCaja.hasNext();) {
             Caja caja = itCaja.next();
-            if (caja.isEstado() && cola.estaVacia()) 
+            if (caja.isEstado() && !cola.estaVacia()) 
             {
-                Cliente u cola.desencolar();
+                Usuario u = cola.desencolar();
                 
                 caja.setEstado(false);
-                caja.setTiempoTransaccion(u.getTiempoTransaccion());
-                caja.setEdadCliente(u.getEdad());
-                caja.setNumeroClientes(caja.getNumeroClientes());
+                caja.setTiempoTransaccion(u.getTiempoespera());
+                
+                caja.setNumeroClientes(caja.getNumeroClientes()+1);
             } else {
                 if (caja.getTiempoTransaccion() > 0) {
                     caja.setTiempoTransaccion(caja.getTiempoTransaccion() - 1);
@@ -145,6 +152,12 @@ public class FXMLDocumentController implements Initializable {
                         SumaCaja1++;
                     } else if (caja == cajeros.get(1)) {
                         SumaCaja2++;
+                    } else if (caja == cajeros.get(2)) {
+                        SumaCaja3++;
+                    } else if (caja == cajeros.get(3)) {
+                        SumaCaja4++;
+                    } else if (caja == cajeros.get(4)) {
+                        SumaCaja5++;
                     }
                 }
             }
@@ -152,9 +165,10 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    private String escribirReporte() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
 
 }

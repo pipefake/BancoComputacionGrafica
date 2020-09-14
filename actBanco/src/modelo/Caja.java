@@ -15,20 +15,6 @@ public class Caja {
     
     private int tiempoTransaccion;
     private int numeroClientes;
-    private int cajeros;
-
-    public int getCajeros() {
-        return cajeros;
-    }
-
-    public void setCajeros(int cajeros) {
-        this.cajeros = cajeros;
-    }
-    
-
-    public Caja(int tiempodemivariable) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * Get the value of numeroClientes
@@ -38,9 +24,7 @@ public class Caja {
     public int getNumeroClientes() {
         return numeroClientes;
     }
-    public int tiempoTransaccion() {
-        return tiempoTransaccion;
-    }
+
     /**
      * Set the value of numeroClientes
      *
@@ -50,18 +34,6 @@ public class Caja {
         this.numeroClientes = numeroClientes;
     }
 
-    public Caja(boolean estado, int tiempoTransaccion, int numeroClientes, int cajeros) {
-        this.estado = estado;
-        this.tiempoTransaccion = tiempoTransaccion;
-        this.numeroClientes = numeroClientes;
-        this.cajeros = cajeros;
-    }
-
-    @Override
-    public String toString() {
-        return "Caja{" + "estado=" + estado + ", tiempoTransaccion=" + tiempoTransaccion + ", numeroClientes=" + numeroClientes + ", cajeros=" + cajeros + '}';
-    }
-
     
 
     /**
@@ -69,7 +41,9 @@ public class Caja {
      *
      * @return the value of tiempoTransaccion
      */
-
+    public int getTiempoTransaccion() {
+        return tiempoTransaccion;
+    }
 
     /**
      * Set the value of tiempoTransaccion
@@ -80,13 +54,6 @@ public class Caja {
         this.tiempoTransaccion = tiempoTransaccion;
     }
 
-    /**
-     *
-     * @param tiempoTransaccion
-     */
-    public void getTiempoTransaccion(int tiempoTransaccion) {
-        this.tiempoTransaccion = tiempoTransaccion;
-    }
 
     /**
      * Get the value of estado
@@ -118,5 +85,9 @@ public class Caja {
         this.numeroClientes = numeroClientes;
     }
 
+    @Override
+    public String toString() {
+        return "Cajero: " + "estado= " + estado + ", tiempoTransaccion= " + tiempoTransaccion + ", numeroClientes= " + numeroClientes + "\n";
+    }
 
 }

@@ -5,13 +5,16 @@
  */
 package modelo;
 
+import core.Base;
+import dato.Usuario;
+
 /**
  *
  * @author asus
  */
 public class FactoryCliente {
 
-    public static Cliente create() {
+    public static Usuario create() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
