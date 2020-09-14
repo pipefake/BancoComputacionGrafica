@@ -17,7 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import modelo.Cajero;
+import modelo.Caja;
 
 
 /**
@@ -31,7 +31,7 @@ public class ActBanco extends Application {
         
         int tiempodemivariable = 30;
         
-        Cajero cajero1 = new Cajero(tiempodemivariable);
+        Caja cajero1 = new Caja(tiempodemivariable);
         
         
 
@@ -63,6 +63,6 @@ public class ActBanco extends Application {
         launch(args);
 
 //       
-    }
+    
 //    
-}
+    }}
