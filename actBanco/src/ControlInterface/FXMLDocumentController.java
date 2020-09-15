@@ -31,6 +31,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
 import modelo.Caja;
+import modelo.OperacionesCola;
 
 /**
  *
@@ -64,7 +65,7 @@ public class FXMLDocumentController implements Initializable {
     private int SumaCaja6;
 
     private Timeline x;
-    
+
     Cola<Usuario> cola;
     LinkedList<Object> cajeros;
 
@@ -75,9 +76,8 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 0; i < 5; i++) {
             cajeros.add(new Caja());
         }
-        
-//        este for lo podemos cambiar por add cada uno
 
+//        este for lo podemos cambiar por add cada uno
         System.out.println(cajeros.toString());
 
         x = new Timeline(new KeyFrame(Duration.millis(1000), (ActionEvent event) -> {
@@ -122,7 +122,6 @@ public class FXMLDocumentController implements Initializable {
 //    private String escribirReporte() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
-
     private void crearClientes() {
         int numeroClientes = (int) (Math.random() * 2);
         System.out.print("Se crearon " + numeroClientes + "clientes");
@@ -137,14 +136,13 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("Atender cliente");
         for (Iterator<Caja> itCaja = cajeros.iterator(); itCaja.hasNext();) {
             Caja caja = itCaja.next();
-            if (caja.isEstado() && !cola.estaVacia()) 
-            {
+            if (caja.isEstado() && !cola.estaVacia()) {
                 Usuario u = cola.desencolar();
-                
+
                 caja.setEstado(false);
                 caja.setTiempoTransaccion(u.getTiempoespera());
-                
-                caja.setNumeroClientes(caja.getNumeroClientes()+1);
+
+                caja.setNumeroClientes(caja.getNumeroClientes() + 1);
             } else {
                 if (caja.getTiempoTransaccion() > 0) {
                     caja.setTiempoTransaccion(caja.getTiempoTransaccion() - 1);
@@ -159,16 +157,101 @@ public class FXMLDocumentController implements Initializable {
                     } else if (caja == cajeros.get(4)) {
                         SumaCaja5++;
                     }
+                    System.out.println(SumaCaja1 + " " + SumaCaja2 + " "
+                            + SumaCaja3 + " " + SumaCaja4 + " " + SumaCaja5 + " ");
+                }
+
+                if (caja.getTiempoTransaccion() == 0) {
+                    caja.setEstado(true);
                 }
             }
-
         }
     }
 
-    private String escribirReporte() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String HacerHtmlCola() {
+        String html = "<html><table border=1 width=100%>";
+        html += OperacionesCola.generarHtml(cola) + "</table></html>";
+        return null;
     }
 
-   
+    private String HacerHtmlCajeros() {
+        String html = "<table border=1 width=100%><tr>";
+        String estado;
+        int contador = 0;
+
+        for (int i = 0; 1 < 6; i++) {
+            if (contador == 0) {
+                html += "<th>Caja</th>";
+            }
+            if (cajeros.get(i).isEstado()) {
+                html += "<th bgcolor=\"green\">" + (i + 1) + "</th>";
+            } else {
+                html += "<th bgcolor=\"red\">" + (i + 1) + "</th>";
+            }
+            contador++;
+        }
+        contador = 0;
+
+        for (Caja caja : cajeros) {
+            if (contador == 0) {
+                html += "<th>Estado</th>";
+            }
+            if (caja.isEstado()) {
+                estado = "bgcolor= \"green\">Disponible";
+            } else {
+                estado = "bgcolor= \"red\">No disponible";
+            }
+            html += "<td" + estado + "</td>";
+            contador++;
+        }
+        html += "</tr><tr>";
+        contador = 0;
+
+        for (Caja caja : cajeros) {
+            if (contador == 0) {
+                html += "<th>Tiempo de transacción</th>";
+            }
+            if (caja.isEstado()) {
+                html += "<td bgcolor= \"green\">";
+            } else {
+                html += "<td bgcolor= \"red\">";
+            }
+            html += caja.getTiempoTransaccion() + "</td>";
+            contador++;
+        }
+        html += "</tr><tr>";
+        contador = 0;
+
+        for (Caja caja : cajeros) {
+            if (contador == 0) {
+                html += "<th>Edad</th>";
+            }
+            if (caja.isEstado()) {
+                html += "<td bgcolor= \"green\">";
+            } else {
+                html += "<td bgcolor= \"red\">";
+            }
+            html += caja.getEdadCliente() + "</td>";
+            contador++;
+        }
+        html += "</tr><tr>";
+        contador = 0;
+
+        for (Caja caja : cajeros) {
+            if (contador == 0) {
+                html += "<th>Número de clientes</th>";
+            }
+            if (caja.isEstado()) {
+                html += "<td bgcolor= \"green\">";
+            } else {
+                html += "<td bgcolor= \"red\">";
+            }
+            html += caja.getNumClientes() + "</td>";
+            contador++;
+        }
+        html += "</tr>";
+        html += "</table>";
+        return html;
+    }
 
 }
