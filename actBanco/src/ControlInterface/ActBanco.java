@@ -42,32 +42,8 @@ public class ActBanco extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        
-        int tiempodemivariable = 30;
-        
-        Caja cajero1 = new Caja(tiempodemivariable);
-        
-        
-
-        
-        
-        
-        
-
-        Timer timer = new Timer();
-
-        TimerTask agregarauto = new TimerTask() {
-            int tiempoestado = 0;
-            @Override
-            public void run() {
-
-                System.out.println("YA?");
-                ++tiempoestado;
-                System.out.println(cajero1.estado(tiempoestado));
-//                System.out.println(cajero1.estado());
-            }
-        };
-        timer.schedule(agregarauto, 1000, 1000);
+       
+       
     }
 
     /**
@@ -76,7 +52,5 @@ public class ActBanco extends Application {
     public static void main(String[] args) {
         launch(args);
 
-//       
-    
 //    
     }}

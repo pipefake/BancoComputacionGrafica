@@ -1,17 +1,18 @@
 /**
- 
-* FXMLDocumentController
-* @author Jonathan.rojas@uao.edu.co Jonathan Rojas Ibanez 2190039
- 
-* @author andrea.perez@uao.edu.co Andrea Lucia Perez Marquinez 2190527
- 
-* @author juan_felipe.jimenez@uao.edu.co Juan Felipe Jimenez Salazar 2190038
- 
-* @date 03 Septiembre 2020si
- 
-* @version 1.0
- 
-*/
+ *
+ * FXMLDocumentController
+ *
+ * @author Jonathan.rojas@uao.edu.co Jonathan Rojas Ibanez 2190039
+ *
+ * @author andrea.perez@uao.edu.co Andrea Lucia Perez Marquinez 2190527
+ *
+ * @author juan_felipe.jimenez@uao.edu.co Juan Felipe Jimenez Salazar 2190038
+ *
+ * @date 03 Septiembre 2020si
+ *
+ * @version 1.0
+ *
+ */
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -81,7 +82,7 @@ public class FXMLDocumentController implements Initializable {
     private Timeline x;
 
     Cola<Usuario> cola;
-    LinkedList<Object> cajeros;
+    LinkedList<Caja> cajeros;
 
     public void initialize(URL url, ResourceBundle rb) {
         cola = new Cola<>();
@@ -134,8 +135,30 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private String escribirReporte() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String respuestaclientes = "El número de clientes atendidos en la fila fue de: ";
+        String respuestapromedio = "El promedio de atención de cada caja es de: " + "\n";
+        String respuesta = "";
+        int suma = 0;
+        int promedio = 0;
+        int sumadepromedio = 0;
+        
+        suma=SumaCaja1+SumaCaja2+SumaCaja3+SumaCaja4+SumaCaja5+SumaCaja6;
+                
+        respuesta = respuestaclientes + suma + "\n";
+        
+        for(int n = 0; n<cajeros.size();n++){
+        for(int i = 0; i<cajeros.get(n).getNumeroClientes();i++){
+            sumadepromedio += cajeros.get(i).getTiempoTransaccion();
+            promedio = sumadepromedio/cajeros.get(i).getNumeroClientes();
+            respuestapromedio += promedio+ "\n";
+        }
+        }
+        
+        respuesta +=  respuestapromedio;
+        
+        return respuesta;
     }
+
     private void crearClientes() {
         int numeroClientes = (int) (Math.random() * 2);
         System.out.print("Se crearon " + numeroClientes + "clientes");
@@ -204,6 +227,7 @@ public class FXMLDocumentController implements Initializable {
             }
             contador++;
         }
+        
         contador = 0;
 
         for (Caja caja : cajeros) {
@@ -238,21 +262,6 @@ public class FXMLDocumentController implements Initializable {
 
         for (Caja caja : cajeros) {
             if (contador == 0) {
-                html += "<th>Edad</th>";
-            }
-            if (caja.isEstado()) {
-                html += "<td bgcolor= \"green\">";
-            } else {
-                html += "<td bgcolor= \"red\">";
-            }
-            html += caja.getEdadCliente() + "</td>";
-            contador++;
-        }
-        html += "</tr><tr>";
-        contador = 0;
-
-        for (Caja caja : cajeros) {
-            if (contador == 0) {
                 html += "<th>Número de clientes</th>";
             }
             if (caja.isEstado()) {
@@ -260,7 +269,7 @@ public class FXMLDocumentController implements Initializable {
             } else {
                 html += "<td bgcolor= \"red\">";
             }
-            html += caja.getNumClientes() + "</td>";
+            html += caja.getNumeroClientes() + "</td>";
             contador++;
         }
         html += "</tr>";
