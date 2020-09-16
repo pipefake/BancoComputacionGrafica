@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,31 +8,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlinterfaces.FXMLDocumentController">
-    <children>
-        <Button fx:id="btnAgregar" layoutX="89.0" layoutY="243.0" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="171.0" text="Agregar" />
-        <Label fx:id="labeltitulo" layoutX="229.0" layoutY="33.0" minHeight="16" minWidth="69" text="Insertar Puntos">
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlinterfaces.FXMLDocumentController">
+   <children>
+      <WebView id="webEngineCajeros" layoutX="42.0" layoutY="66.0" prefHeight="127.0" prefWidth="577.0" />
+      <WebView layoutX="483.0" layoutY="208.0" prefHeight="203.0" prefWidth="152.0" />
+      <Label layoutX="54.0" layoutY="29.0" text="Banco pro">
          <font>
-            <Font size="27.0" />
-         </font></Label>
-      <Label fx:id="labelCX" layoutX="57.0" layoutY="117.0" minHeight="16" minWidth="69" text="Ingresar Coordenada x">
-         <font>
-            <Font size="18.0" />
+            <Font name="Bebas Neue Book" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="labelCY" layoutX="57.0" layoutY="174.0" minHeight="16" minWidth="69" text="Ingresar Coordenada y">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtcoordenadax" layoutX="271.0" layoutY="111.0" prefHeight="39.0" prefWidth="76.0" />
-      <TextField fx:id="txtcoordenaday" layoutX="271.0" layoutY="168.0" prefHeight="39.0" prefWidth="76.0" />
-      <Button fx:id="btnInicio" layoutX="89.0" layoutY="286.0" onAction="#firstButtonAction" prefHeight="27.0" prefWidth="171.0" text="Agregar al inicio" />
-      <Button fx:id="btnFinal" layoutX="89.0" layoutY="328.0" onAction="#lastButtonAction" prefHeight="27.0" prefWidth="171.0" text="Agregar al final" />
-      <TextArea fx:id="txtMostrar" layoutX="370.0" layoutY="106.0" prefHeight="115.0" prefWidth="221.0" />
-      <Button fx:id="btnMostrar" layoutX="386.0" layoutY="243.0" onAction="#showButtonAction" prefHeight="27.0" prefWidth="171.0" text="Mostrar" />
-      <Button fx:id="btnOrden" layoutX="386.0" layoutY="286.0" onAction="#orderButtonAction" prefHeight="27.0" prefWidth="171.0" text="Mostrar en orden" />
-      <Button fx:id="btnInvertida" layoutX="386.0" layoutY="328.0" onAction="#inverseButtonAction" prefHeight="27.0" prefWidth="171.0" text="Mostrar Invertido" />
-      <Button fx:id="btnSalir" layoutX="240.0" layoutY="382.0" onAction="#salirButtonAction" prefHeight="27.0" prefWidth="171.0" text="Salir" />
-    </children>
+      <Button layoutX="44.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleBottonIniciar" text="Iniciar" />
+      <Button layoutX="44.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleBottonTerminar" text="Finalizar" />
+      <TextField id="TextFieldTiempo" layoutX="206.0" layoutY="247.0" />
+      <Label layoutX="206.0" layoutY="214.0" text="Tiempo" />
+      <TextArea id="TextAreaReporte" layoutX="174.0" layoutY="297.0" prefHeight="113.0" prefWidth="284.0" />
+   </children>
 </AnchorPane>

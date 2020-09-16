@@ -119,9 +119,9 @@ public class FXMLDocumentController implements Initializable {
         webEngineCajeros.loadContent(htmlCajeros);
     }
 
-//    private String escribirReporte() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+    private String escribirReporte() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private void crearClientes() {
         int numeroClientes = (int) (Math.random() * 2);
         System.out.print("Se crearon " + numeroClientes + "clientes");

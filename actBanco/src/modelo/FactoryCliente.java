@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package modelo;
-
-import core.Base;
 import dato.Usuario;
+
 
 /**
  *
@@ -15,7 +14,11 @@ import dato.Usuario;
 public class FactoryCliente {
 
     public static Usuario create() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        int edad = (int) (Math.random()*(45-18)+18);
+        int tiempoTranscurrido = (int) (Math.random()*(60-1)+1);
+        
+        return new Usuario(edad, tiempoTranscurrido);
     }
     
 }
